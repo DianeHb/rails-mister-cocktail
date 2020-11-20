@@ -1,4 +1,11 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @cocktail.picture_url %>);background-size: cover;background-position: center">
+<% if @cocktail.photo.present? %>
+  <% url = cl_image_path @cocktail.photo.key, width: 400, crop: :fill %>
+<% else %>
+  <% url = @cocktail.picture_url %>
+<% end %>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= url %>');background-size: cover;background-position: center">
   <div class="container p-5">
     <h1 style="color:white"><%= @cocktail.name %></h1>
   </div>
