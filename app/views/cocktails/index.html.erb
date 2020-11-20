@@ -6,4 +6,7 @@
       <%= link_to(cocktail.name, cocktail_path(cocktail)) %>
     </div>
   <% end %>
+  <%= link_to new_cocktail_path, class: "card-category" do%>
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+  <% end %>
 </div>
