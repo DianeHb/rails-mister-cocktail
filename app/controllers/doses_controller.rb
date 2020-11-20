@@ -9,8 +9,11 @@ class DosesController < ApplicationController
     # we need `cocktail_id` to associate dose with corresponding cocktail
     @cocktail = Cocktail.find(params[:cocktail_id])
     @dose.cocktail = @cocktail
-    @dose.save
-    redirect_to cocktail_path(@cocktail)
+    if @dose.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
   end
 
   def destroy
